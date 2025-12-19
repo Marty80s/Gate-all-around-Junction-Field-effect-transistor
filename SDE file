@@ -1,0 +1,98 @@
+; ===============================================================
+; Gate-All-Around JFET (Nanowire) — Body-Based Painter Format
+; Gate is a p+ Silicon shell around an n-type channel (junction gate)
+; ===============================================================
+
+; -------------------------
+; PARAMETERS (put your values)
+; -------------------------
+(define Rch    0.05)     ; channel radius
+(define tgate  0.01)     ; gate shell thickness (so Rgate = Rch + tgate)
+(define Lch    0.50)     ; channel length
+(define Lsd    0.05)     ; source/drain length
+
+(define xs0 0.0)
+(define xs1 Lsd)
+(define xc0 xs1)
+(define xc1 (+ xc0 Lch))
+(define xd0 xc1)
+(define xd1 (+ xd0 Lsd))
+
+(define Rgate (+ Rch tgate))
+
+; ===============================================================
+; GEOMETRY
+; ===============================================================
+
+; Source (Left) - Silicon core
+(define src_body
+  (sdegeo:create-cylinder
+    (position xs0 0 0) (position xs1 0 0)
+    Rch "Silicon" "Source"))
+
+; Drain (Right) - Silicon core
+(define drn_body
+  (sdegeo:create-cylinder
+    (position xd0 0 0) (position xd1 0 0)
+    Rch "Silicon" "Drain"))
+
+; --- GAA JFET "Painter's Algorithm" (No boolean needed) ---
+; 1) Create Gate as a SOLID cylinder (largest radius) over channel length
+; 2) Create Channel as a SOLID cylinder inside it (overwrites the core),
+;    leaving a Silicon annulus region named "Gate" (the shell)
+
+; Gate (p+ shell region will remain after channel overwrite)
+(define gate_body
+  (sdegeo:create-cylinder
+    (position xc0 0 0) (position xc1 0 0)
+    Rgate "Silicon" "Gate"))
+
+; Channel (core overwrites inside gate)
+(define ch_body
+  (sdegeo:create-cylinder
+    (position xc0 0 0) (position xc1 0 0)
+    Rch "Silicon" "Channel"))
+
+; ===============================================================
+; CONTACT SETS
+; ===============================================================
+
+(sdegeo:define-contact-set "source" 5)
+(sdegeo:define-contact-set "drain"  5)
+(sdegeo:define-contact-set "gate"   5)
+
+; ===============================================================
+; CONTACT ATTACHMENT (ROBUST BODY METHOD)
+; ===============================================================
+
+(sdegeo:set-contact (list src_body)  "source")
+(sdegeo:set-contact (list drn_body)  "drain")
+(sdegeo:set-contact (list gate_body) "gate")  ; attaches to the gate shell body
+
+; ===============================================================
+; DOPING (JFET = PN junction gate)
+; ===============================================================
+
+; Channel (n, light)
+(sdedr:define-constant-profile "ND_Channel" "PhosphorusActiveConcentration" 1e18)
+(sdedr:define-constant-profile-region "Dope_Channel" "ND_Channel" "Channel")
+
+; Source (n+, heavy)
+(sdedr:define-constant-profile "ND_Source" "PhosphorusActiveConcentration" 1e19)
+(sdedr:define-constant-profile-region "Dope_Source" "ND_Source" "Source")
+
+; Drain (n+, heavy)
+(sdedr:define-constant-profile "ND_Drain" "PhosphorusActiveConcentration" 1e19)
+(sdedr:define-constant-profile-region "Dope_Drain" "ND_Drain" "Drain")
+
+; Gate (p+, heavy) — Junction gate shell
+(sdedr:define-constant-profile "NA_Gate" "BoronActiveConcentration" 1e19)
+(sdedr:define-constant-profile-region "Dope_Gate" "NA_Gate" "Gate")
+
+; ===============================================================
+; MESH + SAVE
+; ===============================================================
+
+(sde:build-mesh)
+(sde:save-model "gaa_jfet_msh")
+
