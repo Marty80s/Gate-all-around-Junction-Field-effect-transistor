@@ -1,0 +1,59 @@
+File { 
+  Grid    = "gaa_jfet_msh.tdr"
+  Plot    = "IdVd_IdVg_clean.tdr"
+  Current = "IdVd_IdVg_clean.plt"
+  Output  = "IdVd_IdVg_clean.log"
+}
+
+Electrode { 
+  { Name="source" Voltage=0.0 }
+  { Name="drain"  Voltage=0.0 }
+  { Name="gate"   Voltage=0.0 }
+}
+
+Physics { 
+  Mobility (DopingDependence HighFieldSat Enormal)
+  EffectiveIntrinsicDensity (BandGapNarrowing(OldSlotboom))
+  Recombination (SRH Auger)
+}
+
+Plot { 
+  eDensity hDensity eCurrent hCurrent Potential SpaceCharge ElectricField 
+  eMobility hMobility eVelocity hVelocity Doping DonorConcentration AcceptorConcentration
+}
+
+Math { 
+  Extrapolate 
+  RelErrControl 
+  Iterations = 50
+  ExcludeTouchingContactParts
+}
+
+Solve { 
+  Coupled { Poisson Electron Hole }
+
+  Quasistationary (
+    InitialStep = 0.01  MaxStep = 0.02  MinStep = 1e-5
+    Goal { Name="drain" Voltage=0.05 }
+  ) { Coupled { Poisson Electron Hole } }
+
+  NewCurrentFile = "IdVd_clean_Vg0_single"
+Quasistationary (
+  InitialStep = 0.005  MaxStep = 0.02  MinStep = 1e-6
+  Goal { Name="drain" Voltage=6.0 }
+) { Coupled { Poisson Electron Hole } }
+
+Quasistationary (
+  InitialStep = 0.01  MaxStep = 0.05  MinStep = 1e-6
+  Goal { Name="drain" Voltage=10.0 }
+) { Coupled { Poisson Electron Hole } }
+
+
+  NewCurrentFile = "IdVg_clean_Vd0p1_single"
+  Quasistationary (
+    InitialStep = 0.01  MaxStep = 0.02  MinStep = 1e-5
+    Goal { Name="gate" Voltage=-2.0 }
+  ) { Coupled { Poisson Electron Hole } }
+}
+
+
