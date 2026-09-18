@@ -21,3 +21,7 @@ The recovered `GAAJFET` temporary-session device error reports a non-existing `s
 ## Provenance limits
 
 The preserved mesh and geometry originate from the same prototype directory, but their correspondence has not been re-established by regeneration. Do not assume the saved mesh tracks subsequent geometry edits. Duplicate plots and alternate run outputs were not combined into a single claimed experiment.
+
+## Earlier report and later refinement
+
+The project owner clarified that `docs/Final_report_TCAD.pdf` was completed before the FET refinements represented by the subsequently supplied archives. The report is retained as historical context and is not used to override later simulation configurations or results. See [version history notes](report-notes.md).

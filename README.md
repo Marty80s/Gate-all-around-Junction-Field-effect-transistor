@@ -4,7 +4,24 @@ A three-dimensional silicon nanowire junction field-effect transistor prototype 
 
 The repository contains the original simulation decks, the main prototype's saved mesh, two earlier geometry variants, and a dependency-free Python utility for exporting the archived electrical results to CSV.
 
-**Status:** research prototype with historical simulation outputs. The main archived run reached the end of its curve trace, but the device has not been independently calibrated or rerun during repository preparation. Contact assignment, mesh convergence, and extremely small simulated currents need further investigation.
+**Status:** refined research prototype with saved simulation outputs and an earlier project report. The main archived run reached the end of its curve trace, but the device has not been independently calibrated or rerun during repository preparation. Contact assignment, mesh convergence, and extremely small simulated currents need further investigation.
+
+## Earlier project report
+
+**[Read the earlier project report](docs/Final_report_TCAD.pdf)** — *Design and Simulation of Planar and Gate-All-Around N-Channel JFETs for Low-Power Analog Applications*, by S. Sahil, T. Prajwal, and Manasi Nerurkar.
+
+**Version context:** this report was completed **before Prajwal refined the FET**, as clarified by the project owner. It documents an earlier project stage. The simulation files supplied in the project archives represent the later refined work; the report's figures, metrics, and statements about completed simulations should not be treated as descriptions of that later version.
+
+The report compares long-channel planar, scaled planar, and GAA JFETs. This repository contains the supplied GAA files, rather than the complete planar-device source projects.
+
+| Contributor | Work credited in the earlier report |
+| --- | --- |
+| Prajwal | GAA geometry creation, doping definition, simulation, and output-characteristic extraction |
+| Sahil | Long-channel planar reference device and its output/transfer characteristics |
+| Manasi | Planar layout and meshing, scaled planar device and its output/transfer characteristics |
+| All authors | Results analysis, figures, tables, and report preparation |
+
+The report is retained unchanged for project history. Its earlier statement that GAA transfer characteristics were not extracted does not describe the later archive, which includes a gate-voltage sweep. See [version history notes](docs/report-notes.md).
 
 ## Start here
 
