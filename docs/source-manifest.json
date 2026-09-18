@@ -1,0 +1,72 @@
+[
+  {
+    "source": "Molybdenum/Prototype_1/sde_dvs.cmd",
+    "repository_path": "device/sde_dvs.cmd",
+    "sha256": "965da66d868fdf9696642772ce50a480cae8cc3db094c16f189d9f295ebced95"
+  },
+  {
+    "source": "Molybdenum/Prototype_1/sdevice_des.cmd",
+    "repository_path": "device/sdevice_des.cmd",
+    "sha256": "8cee17a373f692e27e0864280772850dd5368530f15c5d1ec25e3e6837f13b49"
+  },
+  {
+    "source": "Molybdenum/Prototype_1/sdevice.par",
+    "repository_path": "device/sdevice.par",
+    "sha256": "14dfd48428f94df007f5bae54f4ae6f1d4dc9866f30a0937e713d35f907e0070"
+  },
+  {
+    "source": "Molybdenum/Prototype_1/gaa_jfet_msh.cmd",
+    "repository_path": "device/gaa_jfet_msh.cmd",
+    "sha256": "0277e69aaed05af21120dacd907d9bd967ce792f2eeace7ea74070e45ac6b474"
+  },
+  {
+    "source": "Molybdenum/Prototype_1/gaa_jfet_msh.tdr",
+    "repository_path": "device/gaa_jfet_msh.tdr",
+    "sha256": "fe7f859f253a9f2485c9cc3d9d022882a7f7749ec6006aa1790e906985bbd4c7"
+  },
+  {
+    "source": "Molybdenum/Prototype_1/gaa_jfet_bnd.tdr",
+    "repository_path": "device/gaa_jfet_bnd.tdr",
+    "sha256": "c1949738f597eba5bd688a3c4aa74ea75aa986591af5c56b3cf19b7e7474bf7b"
+  },
+  {
+    "source": "GAA/sde_dvs.cmd",
+    "repository_path": "archive/gaa-initial/sde_dvs.cmd",
+    "sha256": "32c40116a6f36fdda403b5c6e8b169f1929c5301dd7aa238a7cd2c1938ec6e32"
+  },
+  {
+    "source": "GAA/sdevice_des.cmd",
+    "repository_path": "archive/gaa-initial/sdevice_des.cmd",
+    "sha256": "660126f62f9e1059b74b0ac803ff6c697077d3b99b5e8fabf08c8f8a3e273b28"
+  },
+  {
+    "source": "GAA/sdevice.par",
+    "repository_path": "archive/gaa-initial/sdevice.par",
+    "sha256": "0dd367ac97ceef01b13ca3c178276999a169c90a90c5fe0ffb82be007a59a72d"
+  },
+  {
+    "source": "GAAJFET/tmp/g_ece-rh810-16.rhod.uc.edu_895805_0.tmp/sde_dvs.cmd",
+    "repository_path": "archive/gaa-oxide/sde_dvs.cmd",
+    "sha256": "4397ba0214f6b18706701a4c023ce4f8ff94b13931a2fb5dc992d2fafd3424c8"
+  },
+  {
+    "source": "GAAJFET/tmp/g_ece-rh810-16.rhod.uc.edu_895805_0.tmp/sdevice_des.cmd",
+    "repository_path": "archive/gaa-oxide/sdevice_des.cmd",
+    "sha256": "a99a362744c5767bc731f681fb0a85b6637a98389bcae494bf54827a89ef6b23"
+  },
+  {
+    "source": "GAAJFET/tmp/g_ece-rh810-16.rhod.uc.edu_895805_0.tmp/sdevice.par",
+    "repository_path": "archive/gaa-oxide/sdevice.par",
+    "sha256": "4a2bf91a559586d27a0f8c270f42d20ac297eee4075ca57e59ec1969b5618c40"
+  },
+  {
+    "source": "Molybdenum/Prototype_1/IdVd_jfetIdVd_IdVg_clean.plt",
+    "repository_path": "results/raw/idvd.plt",
+    "sha256": "0084fe7406554a9d0711f4eca990e83ffd4de52be1506bfbf34584a1c570f871"
+  },
+  {
+    "source": "Molybdenum/Prototype_1/IdVg_jfetIdVd_IdVg_clean.plt",
+    "repository_path": "results/raw/idvg.plt",
+    "sha256": "58a5b49ce831eafa38217eb9c4821ca8a1157227c29476f3da2e70ffc084677d"
+  }
+]

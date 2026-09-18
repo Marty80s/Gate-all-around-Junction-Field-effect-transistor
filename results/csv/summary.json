@@ -1,0 +1,44 @@
+{
+  "idvd": {
+    "rows": 74,
+    "ranges": {
+      "source OuterVoltage": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "gate OuterVoltage": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "drain OuterVoltage": {
+        "min": 0.07975,
+        "max": 10.0
+      },
+      "drain TotalCurrent": {
+        "min": 4.10121334769959e-13,
+        "max": 1.17877812127002e-12
+      }
+    }
+  },
+  "idvg": {
+    "rows": 51,
+    "ranges": {
+      "source OuterVoltage": {
+        "min": 0.0,
+        "max": 0.0
+      },
+      "gate OuterVoltage": {
+        "min": -2.0,
+        "max": -0.02
+      },
+      "drain OuterVoltage": {
+        "min": 10.0,
+        "max": 10.0
+      },
+      "drain TotalCurrent": {
+        "min": 3.73476488592628e-18,
+        "max": 5.48495097646833e-13
+      }
+    }
+  }
+}

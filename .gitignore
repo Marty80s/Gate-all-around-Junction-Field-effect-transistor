@@ -1,0 +1,16 @@
+runs/
+__pycache__/
+*.pyc
+.DS_Store
+*.log
+*.err
+*.out
+*.job
+*.sta
+*~
+Silicon.par
+SiO2.par
+Oxide.par
+PolySilicon.par
+Molybdenum.par
+pp*_des.par
